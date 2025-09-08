@@ -17,7 +17,7 @@ Script automatizado para descargar y combinar todos los PDFs del AIP (Publicaci�
 
 - Python 3.8 o superior
 - Conexión a internet estable
-- Aproximadamente 500MB de espacio libre en disco
+- 1-2 GB de espacio libre en disco (para todos los aeródromos)
 
 ### Dependencias opcionales
 - Tesseract OCR (para mejor reconocimiento de texto en imágenes)
@@ -85,22 +85,24 @@ aip-argentina/
 - ✅ Todos los documentos (reglas, procedimientos, espacio aéreo, rutas, radioayudas, alertas, cartas)
 
 ### Sección AD (Aeródromos)
-- ✅ Páginas generales: AD-0.*, AD-1.* (índices, introducción, servicios)
-- ✅ Aeropuerto San Fernando (SADF): todos los documentos relacionados
-- ❌ Otros aeródromos específicos (excluidos para mantener tamaño manejable)
+- ✅ **TODOS los documentos** de aeródromos (páginas generales + todos los aeródromos específicos)
+- ✅ Incluye: SADF (San Fernando), SABE (Jorge Newbery), SACO (Córdoba), SADF (San Fernando), y TODOS los demás
 
 ## ⚙️ Configuración avanzada
 
-### Modificar criterios de filtrado
+### Modificar criterios de filtrado (si es necesario)
 
-Edita la función `_should_include_document()` en `aip_scraper.py` para incluir otros aeródromos:
+Por defecto, el script incluye **TODOS** los documentos de las tres secciones (GEN, ENR, AD). Si quisieras filtrar algunos aeródromos específicos, puedes editar la función `_should_include_document()` en `aip_scraper.py`:
 
 ```python
 def _should_include_document(self, title: str, section: str) -> bool:
+    if section in ['GEN', 'ENR']:
+        return True
     if section == 'AD':
-        # Agregar otros códigos ICAO
-        if any(code in title for code in ['SADF', 'SABE', 'SACO']):  # Ej: +Jorge Newbery, +Córdoba
-            return True
+        # Ejemplo: excluir aeródromos específicos si el archivo fuera muy grande
+        # if 'UNWANTED_CODE' in title:
+        #     return False
+        return True  # Por defecto incluye todo
 ```
 
 ### Configurar tamaño máximo del archivo
@@ -171,9 +173,9 @@ El script detectará automáticamente nuevas versiones comparando los metadatos.
 
 - **Documentos GEN**: ~30 PDFs
 - **Documentos ENR**: ~45 PDFs  
-- **Documentos AD filtrados**: ~10 PDFs (páginas generales + SADF)
-- **Tiempo de ejecución**: 15-30 minutos
-- **Tamaño final**: 50-150 MB (dependiendo del contenido)
+- **Documentos AD completos**: ~200+ PDFs (todos los aeródromos)
+- **Tiempo de ejecución**: 30-60 minutos
+- **Tamaño final**: 150-400 MB (dependiendo del contenido)
 
 ## 🤝 Contribuciones
 

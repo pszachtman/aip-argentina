@@ -153,19 +153,8 @@ class AIPScraper:
     
     def _should_include_document(self, title: str, section: str) -> bool:
         """Determina si un documento debe ser incluido según los criterios"""
-        if section in ['GEN', 'ENR']:
+        if section in ['GEN', 'ENR', 'AD']:
             return True
-        
-        if section == 'AD':
-            # Incluir páginas generales de AD
-            if any(prefix in title for prefix in ['AD-0.', 'AD-1.']):
-                return True
-            
-            # Incluir solo documentos de SADF (San Fernando)
-            if 'SADF' in title or 'SAN FERNANDO' in title.upper():
-                return True
-                
-            return False
         
         return False
     

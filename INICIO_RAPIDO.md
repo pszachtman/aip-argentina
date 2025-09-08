@@ -23,28 +23,28 @@ python aip_scraper.py
 
 ## 📁 Archivos que obtienes
 
-- **AIP_Argentina_Completo.pdf** - Todo en un archivo (si <100MB)
+- **AIP_Argentina_Completo.pdf** - Todo en un archivo (probablemente >100MB, se dividirá automáticamente)
 - **AIP_Argentina_GEN.pdf** - Sección Generalidades  
 - **AIP_Argentina_ENR.pdf** - Sección En Ruta
-- **AIP_Argentina_AD.pdf** - Sección Aeródromos (general + San Fernando)
+- **AIP_Argentina_AD.pdf** - Sección Aeródromos (TODOS los aeródromos del país)
 
 ## ⏱️ Tiempo estimado
 
 - **Configuración inicial**: 2-5 minutos
-- **Descarga y procesamiento**: 15-30 minutos
-- **Total**: ~30-35 minutos
+- **Descarga y procesamiento**: 30-60 minutos (TODOS los aeródromos)
+- **Total**: ~35-65 minutos
 
 ## 🎯 Contenido incluido
 
 ✅ **GEN**: Todos los documentos (reglamentos, tablas, códigos, servicios)  
 ✅ **ENR**: Todos los documentos (reglas, rutas, radioayudas, cartas)  
-✅ **AD**: Páginas generales + **Todo sobre San Fernando (SADF)**
+✅ **AD**: **TODOS los aeródromos** (San Fernando, Jorge Newbery, Córdoba, y todos los demás)
 
 ## 🔧 Requisitos mínimos
 
 - Python 3.8+
-- 500MB espacio libre
-- Conexión a internet
+- 1-2GB espacio libre (para TODOS los aeródromos)
+- Conexión a internet estable
 
 ## 🆘 Si algo falla
 
