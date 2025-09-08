@@ -90,6 +90,23 @@ aip-argentina/
 
 ## ⚙️ Configuración avanzada
 
+### 📉 Optimización de tamaño de archivos
+
+Si el archivo GEN (157MB) es demasiado grande, puedes crear una versión optimizada:
+
+```bash
+# Crear versión optimizada del GEN (solo ~21MB)
+python optimize_gen.py
+```
+
+**Versión optimizada incluye:**
+- ✅ Todos los reglamentos y servicios esenciales
+- ✅ Tablas de salida/puesta del sol
+- ✅ Tasas y derechos de aeródromos
+- ❌ Excluye solo registros administrativos
+
+**Resultado:** `AIP_Argentina_GEN_Optimizado_v2.pdf` (21MB vs 157MB original)
+
 ### Modificar criterios de filtrado (si es necesario)
 
 Por defecto, el script incluye **TODOS** los documentos de las tres secciones (GEN, ENR, AD). Si quisieras filtrar algunos aeródromos específicos, puedes editar la función `_should_include_document()` en `aip_scraper.py`:
@@ -173,9 +190,13 @@ El script detectará automáticamente nuevas versiones comparando los metadatos.
 
 - **Documentos GEN**: ~30 PDFs
 - **Documentos ENR**: ~45 PDFs  
-- **Documentos AD completos**: ~200+ PDFs (todos los aeródromos)
+- **Documentos AD completos**: ~50 PDFs (todos los aeródromos)
 - **Tiempo de ejecución**: 30-60 minutos
-- **Tamaño final**: 150-400 MB (dependiendo del contenido)
+- **Tamaño final**: 
+  - GEN: 157MB (completo) / 21MB (optimizado)
+  - ENR: ~50MB
+  - AD: ~90MB
+  - **Total**: ~300MB
 
 ## 🤝 Contribuciones
 

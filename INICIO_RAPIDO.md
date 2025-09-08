@@ -23,10 +23,17 @@ python aip_scraper.py
 
 ## 📁 Archivos que obtienes
 
-- **AIP_Argentina_Completo.pdf** - Todo en un archivo (probablemente >100MB, se dividirá automáticamente)
-- **AIP_Argentina_GEN.pdf** - Sección Generalidades  
-- **AIP_Argentina_ENR.pdf** - Sección En Ruta
-- **AIP_Argentina_AD.pdf** - Sección Aeródromos (TODOS los aeródromos del país)
+- **AIP_Argentina_GEN.pdf** (157MB) - Sección Generalidades completa
+- **AIP_Argentina_ENR.pdf** (52MB) - Sección En Ruta
+- **AIP_Argentina_AD.pdf** (93MB) - Sección Aeródromos (TODOS los aeródromos del país)
+
+## 📉 Optimización opcional
+
+Si el archivo GEN es muy grande:
+```bash
+python optimize_gen.py
+```
+Genera: **AIP_Argentina_GEN_Optimizado_v2.pdf** (solo 21MB) 🎯
 
 ## ⏱️ Tiempo estimado
 
